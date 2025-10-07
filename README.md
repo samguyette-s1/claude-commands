@@ -1,6 +1,6 @@
 # IDE Workflow Prompts
 
-Structured prompts for systematic code research, planning, and implementation in Cursor AI.
+Structured prompts for systematic code research, planning, and implementation in an AI enabled IDE.
 
 Adapted from [HumanLayer's Claude commands](https://github.com/humanlayer/humanlayer/blob/main/.claude/commands), modified to use manual parallel research tabs instead of autonomous agents.
 
