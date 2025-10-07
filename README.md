@@ -1,4 +1,4 @@
-# Cursor AI Workflow Prompts
+# IDE Workflow Prompts
 
 Structured prompts for systematic code research, planning, and implementation in Cursor AI.
 
