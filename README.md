@@ -27,11 +27,12 @@ These prompts guide Cursor through a three-step workflow for tackling developmen
 
 Use this prompt to thoroughly document how existing code works before making changes.
 
-**Creates**: `research/YYYY-MM-DD-description.md`
+**Creates**: `research-plans/research-YYYY-MM-DD-description.md`
 
 **Key Features**:
 - Documents what exists (not what should be)
-- Coordinates parallel research investigations
+- Only requests parallel research tabs when necessary (for complex research)
+- For simple research, operates directly to minimize context window usage
 - Generates markdown documentation with code references
 - No suggestions or critiques - pure documentation
 
@@ -40,7 +41,7 @@ Use this prompt to thoroughly document how existing code works before making cha
 
 Use this prompt to create a detailed, phase-based implementation plan.
 
-**Creates**: `plans/YYYY-MM-DD-description.md`
+**Creates**: `research-plans/plan-YYYY-MM-DD-description.md`
 
 **Key Features**:
 - Interactive, iterative planning process
@@ -53,7 +54,7 @@ Use this prompt to create a detailed, phase-based implementation plan.
 
 Use this prompt to execute the implementation plan systematically.
 
-**Uses**: `plans/YYYY-MM-DD-description.md`
+**Uses**: `research-plans/plan-YYYY-MM-DD-description.md`
 
 **Key Features**:
 - Phase-by-phase implementation
@@ -85,12 +86,12 @@ These are generic templates. Before using them:
 ```
 1. Copy research_codebase.md content into Cursor
 2. Provide your research question
-3. Review generated research/YYYY-MM-DD-description.md
+3. Review generated research-plans/research-YYYY-MM-DD-description.md
 
 4. Copy create_plan.md content into Cursor  
 5. Reference the research file
 6. Iterate on the plan until satisfied
-7. Review generated plans/YYYY-MM-DD-description.md
+7. Review generated research-plans/plan-YYYY-MM-DD-description.md
 
 8. Copy implement_plan.md content into Cursor
 9. Reference the plan file
@@ -103,12 +104,11 @@ After running the workflow, your project will have:
 
 ```
 project/
-├── research/
-│   ├── 2025-01-08-authentication-flow.md
-│   └── 2025-01-08-parent-tracking.md
-├── plans/
-│   ├── 2025-01-08-authentication-flow.md
-│   └── 2025-01-08-parent-tracking.md
+├── research-plans/
+│   ├── research-2025-01-08-authentication-flow.md
+│   ├── plan-2025-01-08-authentication-flow.md
+│   ├── research-2025-01-08-parent-tracking.md
+│   └── plan-2025-01-08-parent-tracking.md
 └── [your source code]
 ```
 
@@ -146,10 +146,11 @@ I need to understand the login flow, session management, and token handling.
 ```
 
 Cursor will then:
-1. Ask you to open parallel research tabs with specific questions
-2. Wait for you to paste back the findings
-3. Synthesize everything into a research document
-4. Save it to `research/2025-01-08-authentication-flow.md`
+1. Evaluate if the research is complex enough to warrant parallel tabs
+2. For simple research: Do it directly to minimize context usage
+3. For complex research: Ask you to open parallel research tabs with specific questions
+4. Synthesize everything into a research document
+5. Save it to `research-plans/research-2025-01-08-authentication-flow.md`
 
 #### Example: Create Plan
 
@@ -158,7 +159,7 @@ Cursor will then:
 
 ---
 
-Please create an implementation plan based on research/2025-01-08-authentication-flow.md
+Please create an implementation plan based on research-plans/research-2025-01-08-authentication-flow.md
 
 I want to add OAuth2 support to the existing authentication system.
 ```
@@ -170,7 +171,7 @@ I want to add OAuth2 support to the existing authentication system.
 
 ---
 
-Please implement plans/2025-01-08-add-oauth2-support.md
+Please implement research-plans/plan-2025-01-08-add-oauth2-support.md
 ```
 
 ### Good Research Questions

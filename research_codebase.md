@@ -3,8 +3,8 @@
 **Note**: This is a generic template. Customize the file paths, directory structures, and documentation format to match your project's conventions.
 
 **Workflow**: This is Step 1 of the implementation workflow:
-1. **Research Codebase** (this prompt) → Creates `research/YYYY-MM-DD-[description].md`
-2. Create Plan → Uses research file to create `plans/YYYY-MM-DD-[description].md`
+1. **Research Codebase** (this prompt) → Creates `research-plans/research-YYYY-MM-DD-[description].md`
+2. Create Plan → Uses research file to create `research-plans/plan-YYYY-MM-DD-[description].md`
 3. Implement Plan → Uses plan file to implement changes
 
 You are tasked with conducting comprehensive research across the codebase to answer user questions by coordinating parallel investigations and synthesizing findings. The output will be used to create an implementation plan.
@@ -42,9 +42,12 @@ Then wait for the user's research query.
    - Create a research plan using TodoWrite to track all investigation tasks
    - Consider which directories, files, or architectural patterns are relevant
 
-3. **Request parallel research investigations:**
-   - Pause and ask the user to open separate Cursor tabs to research different aspects concurrently
-   - Be specific about what each investigation should focus on:
+3. **Request parallel research investigations (ONLY if necessary):**
+   - **IMPORTANT**: Only request new Cursor tabs if the research is non-trivial and requires extensive reading/analysis
+   - For simple research (e.g., understanding a single component, reading 2-3 files), do the research yourself directly
+   - For complex research (e.g., understanding multiple interconnected systems, architectural patterns across many files), request parallel tabs
+   - This minimizes the main agent's context window usage
+   - When requesting tabs, be specific about what each investigation should focus on:
 
    **For codebase research:**
    - "Find WHERE [specific files and components] are located"
@@ -90,12 +93,12 @@ Then wait for the user's research query.
    - Answer the user's specific questions with concrete evidence
 
 5. **Prepare the research document:**
-   - **Required filename format**: `research/YYYY-MM-DD-description.md` where:
+   - **Required filename format**: `research-plans/research-YYYY-MM-DD-description.md` where:
      - YYYY-MM-DD is today's date
      - description is a brief kebab-case description of the research topic
    - Examples:
-     - `research/2025-01-08-authentication-flow.md`
-     - `research/2025-01-08-parent-child-tracking.md`
+     - `research-plans/research-2025-01-08-authentication-flow.md`
+     - `research-plans/research-2025-01-08-parent-child-tracking.md`
    - **Note**: This file will be referenced by the Create Plan workflow step
 
 6. **Generate research document:**
@@ -148,7 +151,7 @@ Then wait for the user's research query.
    - Include key file references for easy navigation
    - **Remind the user of next steps**:
      ```
-     Research complete! I've documented my findings in `research/YYYY-MM-DD-description.md`
+     Research complete! I've documented my findings in `research-plans/research-YYYY-MM-DD-description.md`
      
      Next steps:
      1. Review the research document

@@ -3,8 +3,8 @@
 **Note**: This is a generic template. Customize the file paths, commands, and verification steps to match your project's conventions.
 
 **Workflow**: This is Step 3 of the implementation workflow:
-1. Research Codebase → Creates `research/YYYY-MM-DD-[description].md`
-2. Create Plan → Creates `plans/YYYY-MM-DD-[description].md`
+1. Research Codebase → Creates `research-plans/research-YYYY-MM-DD-[description].md`
+2. Create Plan → Creates `research-plans/plan-YYYY-MM-DD-[description].md`
 3. **Implement Plan** (this prompt) → Uses plan file to implement changes
 
 You are tasked with implementing an approved technical plan. These plans contain phases with specific changes and success criteria.
@@ -14,18 +14,18 @@ You are tasked with implementing an approved technical plan. These plans contain
 **First, check for plan files:**
 
 1. **If no plan path provided**:
-   - Check if a `plans/` directory exists
+   - Check if a `research-plans/` directory exists and look for files starting with `plan-`
    - If plans exist, list them:
      ```
      I found these implementation plans:
-     - plans/2025-01-08-authentication-flow.md
-     - plans/2025-01-07-parent-tracking.md
+     - research-plans/plan-2025-01-08-authentication-flow.md
+     - research-plans/plan-2025-01-07-parent-tracking.md
      
      Which plan should I implement?
      ```
-   - If no plans directory or empty:
+   - If no research-plans directory or no plan files:
      ```
-     No implementation plans found in the `plans/` directory.
+     No implementation plans found in the `research-plans/` directory.
      
      Please either:
      1. Provide the path to an existing implementation plan

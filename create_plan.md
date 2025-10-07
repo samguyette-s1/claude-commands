@@ -3,8 +3,8 @@
 **Note**: This is a generic template. Customize the file paths, commands, and directory structures to match your project's conventions.
 
 **Workflow**: This is Step 2 of the implementation workflow:
-1. Research Codebase → Creates `research/YYYY-MM-DD-[description].md`
-2. **Create Plan** (this prompt) → Uses research file to create `plans/YYYY-MM-DD-[description].md`
+1. Research Codebase → Creates `research-plans/research-YYYY-MM-DD-[description].md`
+2. **Create Plan** (this prompt) → Uses research file to create `research-plans/plan-YYYY-MM-DD-[description].md`
 3. Implement Plan → Uses plan file to implement changes
 
 You are tasked with creating detailed implementation plans through an interactive, iterative process. You should be skeptical, thorough, and work collaboratively with the user to produce high-quality technical specifications.
@@ -14,25 +14,25 @@ You are tasked with creating detailed implementation plans through an interactiv
 When starting the planning process:
 
 1. **Check for research files first**:
-   - Look in the `research/` directory for recent research documents
+   - Look in the `research-plans/` directory for recent research documents (files starting with `research-`)
    - If research files exist, ask which one to use:
      ```
      I found these research documents:
-     - research/2025-01-08-authentication-flow.md
-     - research/2025-01-07-parent-tracking.md
+     - research-plans/research-2025-01-08-authentication-flow.md
+     - research-plans/research-2025-01-07-parent-tracking.md
      
      Which research document should I use to create the implementation plan?
      Or provide a different file path if you have a specific ticket/requirement document.
      ```
 
-2. **If no research directory exists or is empty**:
+2. **If no research-plans directory exists or is empty**:
    ```
    I'll help you create a detailed implementation plan. 
    
    Note: For best results, consider running the Research Codebase workflow first to document the current state of the codebase.
    
    Please provide:
-   1. Path to a research document (e.g., research/YYYY-MM-DD-description.md)
+   1. Path to a research document (e.g., research-plans/research-YYYY-MM-DD-description.md)
    2. OR a task/ticket description with relevant context
    3. Any constraints or specific requirements
    
@@ -167,13 +167,13 @@ Once aligned on approach:
 
 After structure approval:
 
-1. **Write the plan** to the plans directory
-   - **Required format**: `plans/YYYY-MM-DD-description.md` where:
+1. **Write the plan** to the research-plans directory
+   - **Required format**: `research-plans/plan-YYYY-MM-DD-description.md` where:
      - YYYY-MM-DD is today's date
      - description is a brief kebab-case description (should match the research file if applicable)
    - Examples:
-     - `plans/2025-01-08-authentication-flow.md` (matches `research/2025-01-08-authentication-flow.md`)
-     - `plans/2025-01-08-parent-child-tracking.md`
+     - `research-plans/plan-2025-01-08-authentication-flow.md` (matches `research-plans/research-2025-01-08-authentication-flow.md`)
+     - `research-plans/plan-2025-01-08-parent-child-tracking.md`
    - **Note**: This file will be used by the Implement Plan workflow step
 2. **Use this template structure**:
 
@@ -269,7 +269,7 @@ After structure approval:
 
 ## References
 
-- Research document: `research/YYYY-MM-DD-description.md` (if applicable)
+- Research document: `research-plans/research-YYYY-MM-DD-description.md` (if applicable)
 - Original ticket: `[path/to/ticket/TICKET-XXXX.md]` (if applicable)
 - Similar implementation: `[file:line]` (if found during research)
 ````
@@ -279,7 +279,7 @@ After structure approval:
 1. **Present the draft plan location**:
    ```
    I've created the initial implementation plan at:
-   `plans/YYYY-MM-DD-description.md`
+   `research-plans/plan-YYYY-MM-DD-description.md`
 
    Please review it and let me know:
    - Are the phases properly scoped?
@@ -299,7 +299,7 @@ After structure approval:
 
 4. **When plan is finalized**, remind the user of next steps:
    ```
-   Implementation plan complete! The plan is saved at `plans/YYYY-MM-DD-description.md`
+   Implementation plan complete! The plan is saved at `research-plans/plan-YYYY-MM-DD-description.md`
    
    Next steps:
    1. Review the complete plan one final time
@@ -446,7 +446,7 @@ This will help me create a more accurate plan for [specific change].
 ### Example 1: With Research Document
 
 ```
-User: Create a plan based on research/2025-01-08-parent-tracking.md
+User: Create a plan based on research-plans/research-2025-01-08-parent-tracking.md
 Assistant: Let me read that research document...
 
 [Reads research document]
