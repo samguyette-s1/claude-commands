@@ -1,4 +1,4 @@
-# IDE Workflow Prompts
+# Workflow Prompts
 
 Structured prompts for systematic code research, planning, and implementation in an AI enabled IDE.
 
