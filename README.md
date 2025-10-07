@@ -51,11 +51,3 @@ Create plan from research-plans/research-2025-01-08-authentication-flow.md to ad
 ---
 Implement research-plans/plan-2025-01-08-add-oauth2-support.md
 ```
-
-## Features
-
-- **Smart research**: Only spawns parallel tabs for complex investigations
-- **Auto-discovery**: Finds and lists research/plan files automatically
-- **Consistent naming**: `research-YYYY-MM-DD-*.md` and `plan-YYYY-MM-DD-*.md` format
-- **Progressive**: Each step optional and works independently
-
